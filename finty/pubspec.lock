@@ -312,6 +312,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.2.4"
+  rating_bar:
+    dependency: "direct main"
+    description:
+      name: rating_bar
+      sha256: "490e7cfb64b19a18b94726d8381fa18cd698bd20be5e8241f9a1045a16823d6f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.0"
   shared_preferences:
     dependency: "direct main"
     description:

@@ -2,32 +2,23 @@ import 'dart:async';
 
 import 'package:mysql1/mysql1.dart';
 
-Future main() async {
-  // Open a connection (testdb should already exist)
+Future fun() async {
   final conn = await MySqlConnection.connect(ConnectionSettings(
       host: 'localhost', port: 3306, user: 'root', db: 'mydb', password: ''));
 
-  // Insert some data
   var result = await conn.query(
-      'insert into users (name, email, age) values (?, ?, ?)',
-      ['Bob', 'bob@bob.com', 25]);
+      'insert into users (name, phone, password, email) values (?, ?, ?)',
+      ['Bob', '432532532', 'iamdeath', 'bob@bob.com']);
+
   print('Inserted row id=${result.insertId}');
 
   // Query the database using a parameterized query
-  var results = await conn.query(
-      'select name, email, age from users where id = ?', [result.insertId]);
+  var results =
+      await conn.query('select * from users where id = ?', [result.insertId]);
+
   for (var row in results) {
-    print('Name: ${row[0]}, email: ${row[1]} age: ${row[2]}');
-  }
-
-  // Update some data
-  await conn.query('update users set age=? where name=?', [26, 'Bob']);
-
-  // Query again database using a parameterized query
-  var results2 = await conn.query(
-      'select name, email, age from users where id = ?', [result.insertId]);
-  for (var row in results2) {
-    print('Name: ${row[0]}, email: ${row[1]} age: ${row[2]}');
+    print(
+        'Name: ${row[0]}, phone: ${row[1]} password: ${row[2]},  email : ${row[3]}');
   }
 
   // Finally, close the connection

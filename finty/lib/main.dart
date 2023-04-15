@@ -18,7 +18,7 @@ class MainApp extends StatelessWidget {
     return const MaterialApp(
       title: "Finty",
       themeMode: ThemeMode.light,
-      home: LoginScreen(),
+      home: HomeScreen(),
     );
   }
 }
@@ -32,7 +32,7 @@ class Welcome extends StatefulWidget {
 class WelcomeState extends State<Welcome> {
   void goHome() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const LoginScreen()));
+        .push(MaterialPageRoute(builder: (context) => const HomeScreen()));
   }
 
   @override

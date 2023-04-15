@@ -27,7 +27,7 @@ class ProfileScreenState extends State<ProfileScreen> {
             child: Row(
               children: [
                 TextButton(
-                  onPressed: null,
+                  onPressed: backToHome,
                   style: ButtonStyle(
                     backgroundColor:
                         MaterialStateProperty.all(Color(0xff2c2c2c)),

@@ -1,11 +1,15 @@
 import 'dart:ffi';
 import 'dart:math';
 
+import 'package:finty/constant/constants.dart';
 import 'package:finty/screens/credit_card_screen.dart';
 import 'package:finty/screens/income_expense.dart';
 import 'package:finty/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
+
+import 'budget_form.dart';
+import 'expense_form.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -32,6 +36,16 @@ class HomeScreenState extends State<HomeScreen> {
         .push(MaterialPageRoute(builder: (context) => const IncomeExpense()));
   }
 
+  void goToBudget() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const BudgetForm()));
+  }
+
+  void goToExpense() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const ExpenseForm()));
+  }
+
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black);
 
@@ -49,7 +63,7 @@ class HomeScreenState extends State<HomeScreen> {
               const Padding(
                 padding: EdgeInsets.only(left: 16),
                 child: Text(
-                  "Hello User",
+                  "Hello ${Constants.username}!",
                   style: TextStyle(color: Colors.white),
                 ),
               ),
@@ -101,6 +115,10 @@ class HomeScreenState extends State<HomeScreen> {
                         child: const Padding(
                           padding:
                               EdgeInsets.only(top: 40, left: 40, right: 40),
+                          child: Text(
+                            "VISA",
+                            style: TextStyle(color: Colors.white),
+                          ),
                         ),
                       ),
                     ),
@@ -110,8 +128,12 @@ class HomeScreenState extends State<HomeScreen> {
                       decoration: BoxDecoration(
                         color: Color(0xff333333),
                       ),
-                      child: const Padding(
+                      child: Padding(
                         padding: EdgeInsets.only(top: 40, left: 40, right: 40),
+                        child: Text(
+                          "Balance: ${Constants.balance}",
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     )
                   ],
@@ -131,6 +153,22 @@ class HomeScreenState extends State<HomeScreen> {
                           border: Border.all(),
                           color: Color(0xff404040),
                           borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Column(children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 30.0),
+                          child: Text(
+                            "Income:  ${Constants.income}",
+                            style: TextStyle(color: Colors.green),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 25,
+                        ),
+                        Text(
+                          "Expenses:  ${Constants.expense}",
+                          style: TextStyle(color: Colors.red),
+                        ),
+                      ]),
                     ),
                   ),
                   Padding(
@@ -145,6 +183,13 @@ class HomeScreenState extends State<HomeScreen> {
                               color: Color(0xff404040),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20))),
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 16.0, left: 16),
+                            child: Text(
+                              "Youtube:  12 Apr",
+                              style: TextStyle(color: Colors.red),
+                            ),
+                          ),
                         ),
                         SizedBox(
                           height: 10,
@@ -157,6 +202,10 @@ class HomeScreenState extends State<HomeScreen> {
                               color: Color(0xff404040),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20))),
+                          child: Icon(
+                            Icons.add,
+                            color: Colors.green,
+                          ),
                         ),
                       ],
                     ),
@@ -171,6 +220,53 @@ class HomeScreenState extends State<HomeScreen> {
                   border: Border.all(),
                   color: Color(0xff404040),
                   borderRadius: BorderRadius.all(Radius.circular(20))),
+              child: Center(
+                child: Column(children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      "Transactions",
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    height: 40,
+                    width: 400,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 50.0),
+                      child: Text(
+                        "Netflix :                                      20",
+                        style: TextStyle(color: Colors.red, fontSize: 14),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                    width: 400,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 50.0),
+                      child: Text(
+                        "Amazon :                                   40",
+                        style: TextStyle(color: Colors.red, fontSize: 14),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                    width: 400,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 50.0),
+                      child: Text(
+                        "Maa :                                       300",
+                        style: TextStyle(color: Colors.green, fontSize: 14),
+                      ),
+                    ),
+                  ),
+                ]),
+              ),
             ),
           ],
         ),
@@ -191,24 +287,79 @@ class HomeScreenState extends State<HomeScreen> {
                       EdgeInsets.only(top: 60, left: 16, right: 16, bottom: 16),
                   child: Text(
                     "Budgets & Goals",
-                    style: TextStyle(color: Colors.white, fontSize: 18),
+                    style: TextStyle(color: Colors.white, fontSize: 24),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: Container(
                     width: 400,
-                    height: 230,
+                    height: 170,
                     decoration: BoxDecoration(
                         border: Border.all(),
                         color: Color(0xff404040),
                         borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: Padding(
+                      padding: const EdgeInsets.all(32.0),
+                      child: Column(
+                        children: [
+                          Text(
+                            "Budgets",
+                            style: TextStyle(color: Colors.white, fontSize: 20),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "How much can I spend to meet my budget?",
+                            style: TextStyle(color: Colors.white, fontSize: 12),
+                          ),
+                          SizedBox(
+                            height: 50,
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 16.0),
+                                  child: Text(
+                                    "Grocery",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 4,
+                                ),
+                                Row(
+                                  children: [
+                                    SizedBox(
+                                        height: 10,
+                                        width: 80,
+                                        child: ColoredBox(color: Colors.red)),
+                                    SizedBox(
+                                        height: 10,
+                                        width: 120,
+                                        child: ColoredBox(color: Colors.green)),
+                                    SizedBox(
+                                      width: 9,
+                                    ),
+                                    Text(
+                                      "800/2000",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 12),
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 32),
                   child: TextButton(
-                    onPressed: null,
+                    onPressed: goToBudget,
                     child: Row(
                       children: [
                         Icon(
@@ -227,17 +378,72 @@ class HomeScreenState extends State<HomeScreen> {
                   padding: const EdgeInsets.all(16),
                   child: Container(
                     width: 400,
-                    height: 230,
+                    height: 170,
                     decoration: BoxDecoration(
                         border: Border.all(),
                         color: Color(0xff404040),
                         borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: Padding(
+                      padding: const EdgeInsets.all(32.0),
+                      child: Column(
+                        children: [
+                          Text(
+                            "Goals",
+                            style: TextStyle(color: Colors.white, fontSize: 20),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "How much I saved for my goals?",
+                            style: TextStyle(color: Colors.white, fontSize: 12),
+                          ),
+                          SizedBox(
+                            height: 50,
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 16.0),
+                                  child: Text(
+                                    "Headphones",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 4,
+                                ),
+                                Row(
+                                  children: [
+                                    SizedBox(
+                                        height: 10,
+                                        width: 130,
+                                        child: ColoredBox(color: Colors.green)),
+                                    SizedBox(
+                                        height: 10,
+                                        width: 70,
+                                        child: ColoredBox(color: Colors.red)),
+                                    SizedBox(
+                                      width: 9,
+                                    ),
+                                    Text(
+                                      "800/2000",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 12),
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 32),
                   child: TextButton(
-                    onPressed: null,
+                    onPressed: goToExpense,
                     child: Row(
                       children: const [
                         Icon(
@@ -255,13 +461,54 @@ class HomeScreenState extends State<HomeScreen> {
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: Container(
-                    width: 400,
-                    height: 230,
-                    decoration: BoxDecoration(
-                        border: Border.all(),
-                        color: Color(0xff404040),
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
-                  ),
+                      width: 400,
+                      height: 230,
+                      decoration: BoxDecoration(
+                          border: Border.all(),
+                          color: Color(0xfffaa61a),
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Text(
+                              "Personalized Advice",
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 18),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          SizedBox(
+                            height: 40,
+                            width: 400,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 50.0),
+                              child: Text(
+                                "DailyBudget :                              20",
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 14),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 40,
+                            width: 400,
+                            child: Padding(
+                                padding: const EdgeInsets.only(left: 50.0),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      "Save Rs. 20 Daily to buy headphones, 30 days earlier",
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 12),
+                                    ),
+                                  ],
+                                )),
+                          ),
+                        ],
+                      )),
                 ),
               ],
             ),
@@ -290,7 +537,7 @@ class HomeScreenState extends State<HomeScreen> {
                     padding: EdgeInsets.all(16),
                     child: Center(
                       child: Text(
-                        "You don't have any accounts linked to finity yet",
+                        "You don't have any accounts linked to Finty yet",
                         style: TextStyle(color: Colors.white),
                       ),
                     )),
@@ -303,6 +550,24 @@ class HomeScreenState extends State<HomeScreen> {
                         border: Border.all(),
                         color: Color(0xff404040),
                         borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 24.0),
+                          child: Text(
+                            "Add  Bank Account",
+                            style: TextStyle(color: Colors.white, fontSize: 18),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20),
+                          child: Text(
+                            "Connect your Bank Account.\nSync all your transactions to Wallet\nautomatically",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Padding(
@@ -314,6 +579,24 @@ class HomeScreenState extends State<HomeScreen> {
                         border: Border.all(),
                         color: Color(0xff404040),
                         borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 24.0),
+                          child: Text(
+                            "Manual Input",
+                            style: TextStyle(color: Colors.white, fontSize: 18),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20),
+                          child: Text(
+                            "Update your account manually.\nYou can connect the bank later,\n if you wish.",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -435,7 +718,10 @@ class HomeScreenState extends State<HomeScreen> {
                         padding: EdgeInsets.only(left: 45),
                         child: Text(
                           "Change Passcode",
-                          style: TextStyle(color: Colors.white, fontSize: 16),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
                     ],

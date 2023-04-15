@@ -1,21 +1,27 @@
 class Constants {
-  String username = "Aniket";
-  String password = 'mypassword';
-  String email = 'aniket@gmail';
-  String phone = "+91-7739552299";
+  static const String username = "Aniket";
+  static const String password = 'mypassword';
+  static const String email = 'aniket@gmail';
+  static const String phone = "+91-7739552299";
 
-  int t1amt = 45;
-  int t2amt = 50;
-  String payment_method = "Card";
+  static const int income = 400;
 
-  String categoryname = 'tuki';
+  static const int expense = 300;
 
-  int budgetamount = 5500;
-  int recurring_frequency = 4;
+  static const int balance = 2000;
 
-  String SavingGoalname = 'april';
+  static const int t1amt = 45;
+  static const int t2amt = 50;
+  static const String payment_method = "Card";
 
-  int target_amount = 6000;
+  static const String categoryname = 'tuki';
 
-  int current_amount = 5000;
+  static const int budgetamount = 5500;
+  static const int recurring_frequency = 4;
+
+  static const String SavingGoalname = 'april';
+
+  static const int target_amount = 6000;
+
+  static const int current_amount = 5000;
 }
