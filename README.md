@@ -61,7 +61,8 @@ To get started, you will need to have Flutter installed on your local machine. Y
 
 ## Built With
 
-- Figma - UI Design
+- Figma - UI Design (Link : https://www.figma.com/file/DEEmkjOpMuchEhOExTFuOA/Finty?node-id=0%3A1&t=CdbIBbIz4LEfbVVx-1)
+- Figma - UI Prototype (Link : https://www.figma.com/proto/DEEmkjOpMuchEhOExTFuOA/Finty?page-id=0%3A1&node-id=4-2&viewport=376%2C360%2C0.73&scaling=scale-down&starting-point-node-id=4%3A2&show-proto-sidebar=1)
 - Flutter - Mobile Application Framework
 - SQLFlite - Local SQLite Database
 

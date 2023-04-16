@@ -125,13 +125,13 @@ class HomeScreenState extends State<HomeScreen> {
                             borderRadius: BorderRadius.vertical(
                                 top: Radius.circular(20))),
                         child: Padding(
-                          padding:
-                              EdgeInsets.only(top: 40, left: 40, right: 40),
+                          padding: EdgeInsets.only(
+                              top: 32, left: 40, right: 40, bottom: 8),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: const [
                               Text(
-                                "VISA",
+                                "AM EX",
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 16),
                               ),
