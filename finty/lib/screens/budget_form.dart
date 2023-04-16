@@ -123,6 +123,13 @@ class _BudgetFormState extends State<BudgetForm> {
               ),
             ),
           ),
+          const ElevatedButton(
+            onPressed: null,
+            child: Text(
+              "Done",
+              style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
+          ),
         ],
       ),
     );

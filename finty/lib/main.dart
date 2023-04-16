@@ -18,7 +18,7 @@ class MainApp extends StatelessWidget {
     return const MaterialApp(
       title: "Finty",
       themeMode: ThemeMode.light,
-      home: LoginScreen(),
+      home: HomeScreen(),
     );
   }
 }

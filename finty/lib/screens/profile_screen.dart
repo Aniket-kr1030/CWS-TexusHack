@@ -1,5 +1,6 @@
+import 'package:finty/screens/login_screen.dart';
 import 'package:flutter/material.dart';
-
+import 'package:finty/constant/constants.dart';
 import 'home_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -13,6 +14,11 @@ class ProfileScreenState extends State<ProfileScreen> {
   void backToHome() {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => const HomeScreen()));
+  }
+
+  void goLogin() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const LoginScreen()));
   }
 
   @override
@@ -80,7 +86,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     Text(
-                      "username",
+                      "${Constants.username}",
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                   ],
@@ -105,7 +111,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     Text(
-                      "+91-XXXXXXXXXX",
+                      "${Constants.phone}",
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                   ],
@@ -130,7 +136,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     Text(
-                      "xyz@gmail.com",
+                      "${Constants.email}",
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                   ],
@@ -155,7 +161,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     Text(
-                      "DD/MM/YY",
+                      "04/02/01",
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                   ],
@@ -188,25 +194,28 @@ class ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(
-                left: 60, right: 40, top: 200, bottom: 20),
-            child: Center(
-              child: Row(
-                children: const [
-                  Icon(
-                    Icons.exit_to_app,
-                    color: Colors.red,
-                    size: 24,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 45),
-                    child: Text(
-                      "Sign Out",
-                      style: TextStyle(color: Colors.red, fontSize: 16),
+          TextButton(
+            onPressed: goLogin,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                  left: 60, right: 40, top: 200, bottom: 20),
+              child: Center(
+                child: Row(
+                  children: const [
+                    Icon(
+                      Icons.exit_to_app,
+                      color: Colors.red,
+                      size: 24,
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: EdgeInsets.only(left: 45),
+                      child: Text(
+                        "Sign Out",
+                        style: TextStyle(color: Colors.red, fontSize: 16),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

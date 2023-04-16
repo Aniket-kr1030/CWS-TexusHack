@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:finty/constant/constants.dart';
 import 'package:finty/screens/credit_card_screen.dart';
 import 'package:finty/screens/income_expense.dart';
+import 'package:finty/screens/login_screen.dart';
 import 'package:finty/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
@@ -24,6 +25,11 @@ class HomeScreenState extends State<HomeScreen> {
   void goProfile() {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => const ProfileScreen()));
+  }
+
+  void goLogin() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const LoginScreen()));
   }
 
   void goCredit() {
@@ -112,12 +118,26 @@ class HomeScreenState extends State<HomeScreen> {
                             color: Color(0xff404040),
                             borderRadius: BorderRadius.vertical(
                                 top: Radius.circular(20))),
-                        child: const Padding(
+                        child: Padding(
                           padding:
                               EdgeInsets.only(top: 40, left: 40, right: 40),
-                          child: Text(
-                            "VISA",
-                            style: TextStyle(color: Colors.white),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              Text(
+                                "VISA",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 16),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "****   ****   ****   8154",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 18),
+                              )
+                            ],
                           ),
                         ),
                       ),
@@ -131,8 +151,8 @@ class HomeScreenState extends State<HomeScreen> {
                       child: Padding(
                         padding: EdgeInsets.only(top: 40, left: 40, right: 40),
                         child: Text(
-                          "Balance: ${Constants.balance}",
-                          style: TextStyle(color: Colors.white),
+                          "Balance: Rs.${Constants.balance}",
+                          style: TextStyle(color: Colors.white, fontSize: 18),
                         ),
                       ),
                     )
@@ -157,7 +177,7 @@ class HomeScreenState extends State<HomeScreen> {
                         Padding(
                           padding: const EdgeInsets.only(top: 30.0),
                           child: Text(
-                            "Income:  ${Constants.income}",
+                            "Income:  Rs.${Constants.income}",
                             style: TextStyle(color: Colors.green),
                           ),
                         ),
@@ -165,7 +185,7 @@ class HomeScreenState extends State<HomeScreen> {
                           height: 25,
                         ),
                         Text(
-                          "Expenses:  ${Constants.expense}",
+                          "Expenses:  Rs.${Constants.expense}",
                           style: TextStyle(color: Colors.red),
                         ),
                       ]),
@@ -202,9 +222,24 @@ class HomeScreenState extends State<HomeScreen> {
                               color: Color(0xff404040),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20))),
-                          child: Icon(
-                            Icons.add,
-                            color: Colors.green,
+                          child: Center(
+                            child: TextButton(
+                                onPressed: goToBudget,
+                                child: Row(
+                                  children: [
+                                    SizedBox(
+                                      width: 20,
+                                    ),
+                                    Text(
+                                      "Budget",
+                                      style: TextStyle(color: Colors.green),
+                                    ),
+                                    Icon(
+                                      Icons.add,
+                                      color: Colors.green,
+                                    ),
+                                  ],
+                                )),
                           ),
                         ),
                       ],
@@ -238,7 +273,7 @@ class HomeScreenState extends State<HomeScreen> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 50.0),
                       child: Text(
-                        "Netflix :                                      20",
+                        "Netflix                                                         Rs.  -20",
                         style: TextStyle(color: Colors.red, fontSize: 14),
                       ),
                     ),
@@ -249,7 +284,7 @@ class HomeScreenState extends State<HomeScreen> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 50.0),
                       child: Text(
-                        "Amazon :                                   40",
+                        "Amazon                                                      Rs.  -40",
                         style: TextStyle(color: Colors.red, fontSize: 14),
                       ),
                     ),
@@ -260,7 +295,7 @@ class HomeScreenState extends State<HomeScreen> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 50.0),
                       child: Text(
-                        "Maa :                                       300",
+                        "Maa                                                             Rs. +300",
                         style: TextStyle(color: Colors.green, fontSize: 14),
                       ),
                     ),
@@ -451,7 +486,7 @@ class HomeScreenState extends State<HomeScreen> {
                           color: Colors.white,
                         ),
                         Text(
-                          "Create Expense",
+                          "Create Goal",
                           style: TextStyle(color: Colors.white, fontSize: 16),
                         )
                       ],
@@ -531,7 +566,7 @@ class HomeScreenState extends State<HomeScreen> {
             child: ListView(
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               children: <Widget>[
                 const Padding(
                     padding: EdgeInsets.all(16),
@@ -797,22 +832,25 @@ class HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: const EdgeInsets.only(
                     left: 60, right: 40, top: 20, bottom: 20),
-                child: Center(
-                  child: Row(
-                    children: const [
-                      Icon(
-                        Icons.exit_to_app,
-                        color: Colors.red,
-                        size: 24,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 45),
-                        child: Text(
-                          "Sign Out",
-                          style: TextStyle(color: Colors.red, fontSize: 16),
+                child: TextButton(
+                  onPressed: goLogin,
+                  child: Center(
+                    child: Row(
+                      children: const [
+                        Icon(
+                          Icons.exit_to_app,
+                          color: Colors.red,
+                          size: 24,
                         ),
-                      ),
-                    ],
+                        Padding(
+                          padding: EdgeInsets.only(left: 45),
+                          child: Text(
+                            "Sign Out",
+                            style: TextStyle(color: Colors.red, fontSize: 16),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
