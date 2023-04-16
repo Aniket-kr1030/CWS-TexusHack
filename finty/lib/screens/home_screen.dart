@@ -126,22 +126,27 @@ class HomeScreenState extends State<HomeScreen> {
                                 top: Radius.circular(20))),
                         child: Padding(
                           padding: EdgeInsets.only(
-                              top: 32, left: 40, right: 40, bottom: 8),
+                              top: 24, left: 40, right: 40, bottom: 16),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: const [
                               Text(
                                 "AM EX",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 16),
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w900),
                               ),
                               SizedBox(
                                 height: 10,
                               ),
-                              Text(
-                                "****   ****   ****   8154",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 18),
+                              Padding(
+                                padding: EdgeInsets.only(top: 8.0),
+                                child: Text(
+                                  "****   ****   ****   8154",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 18),
+                                ),
                               )
                             ],
                           ),
@@ -372,6 +377,7 @@ class HomeScreenState extends State<HomeScreen> {
                           SizedBox(
                             height: 50,
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.only(top: 16.0),
@@ -467,6 +473,7 @@ class HomeScreenState extends State<HomeScreen> {
                           SizedBox(
                             height: 50,
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.only(top: 16.0),
@@ -533,7 +540,7 @@ class HomeScreenState extends State<HomeScreen> {
                   padding: const EdgeInsets.all(16),
                   child: Container(
                       width: 400,
-                      height: 230,
+                      height: 200,
                       decoration: BoxDecoration(
                           border: Border.all(),
                           color: Color(0xfffaa61a),
@@ -559,9 +566,11 @@ class HomeScreenState extends State<HomeScreen> {
                             child: Padding(
                               padding: const EdgeInsets.only(left: 50.0),
                               child: Text(
-                                "DailyBudget :                              20",
+                                "DailyBudget :                              Rs 20",
                                 style: TextStyle(
-                                    color: Colors.black, fontSize: 14),
+                                    color: Colors.black,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700),
                               ),
                             ),
                           ),

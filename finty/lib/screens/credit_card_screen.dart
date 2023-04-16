@@ -24,7 +24,7 @@ class CreditCardScreenState extends State<CreditCardScreen> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 64),
+            padding: const EdgeInsets.only(top: 64, bottom: 24),
             child: Row(
               children: [
                 TextButton(
@@ -38,7 +38,10 @@ class CreditCardScreenState extends State<CreditCardScreen> {
                 ),
                 Text(
                   "Your cards",
-                  style: TextStyle(color: Colors.white, fontSize: 18),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w900),
                 ),
               ],
             ),
