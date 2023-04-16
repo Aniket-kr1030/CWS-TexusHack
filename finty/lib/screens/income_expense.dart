@@ -1,6 +1,7 @@
 import 'package:finty/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
+import '../constant/constants.dart';
 
 class IncomeExpense extends StatefulWidget {
   const IncomeExpense({Key? key}) : super(key: key);
@@ -41,9 +42,13 @@ class IncomeExpenseState extends State<IncomeExpense> {
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.only(top: 32),
-                    child: Text(
-                      "Income",
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Income",
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -58,6 +63,44 @@ class IncomeExpenseState extends State<IncomeExpense> {
                     border: Border.all(),
                     color: Color(0xff404040),
                     borderRadius: BorderRadius.all(Radius.circular(20))),
+                child: Column(children: [
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    height: 40,
+                    width: 400,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 50.0),
+                      child: Text(
+                        "${Constants.it1}                                                        Rs.  ${-1 * Constants.t1}",
+                        style: TextStyle(color: Colors.green, fontSize: 14),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                    width: 400,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 50.0),
+                      child: Text(
+                        "${Constants.it2}                                                  Rs.  ${-1 * Constants.t2} ",
+                        style: TextStyle(color: Colors.green, fontSize: 14),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                    width: 400,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 50.0),
+                      child: Text(
+                        "${Constants.it3}                                                      Rs. ${Constants.t3}",
+                        style: TextStyle(color: Colors.green, fontSize: 14),
+                      ),
+                    ),
+                  ),
+                ]),
               ),
             ),
           ],
@@ -85,9 +128,13 @@ class IncomeExpenseState extends State<IncomeExpense> {
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.only(top: 32),
-                    child: Text(
-                      "Expenses",
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Expenses",
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -102,6 +149,44 @@ class IncomeExpenseState extends State<IncomeExpense> {
                     border: Border.all(),
                     color: Color(0xff404040),
                     borderRadius: BorderRadius.all(Radius.circular(20))),
+                child: Column(children: [
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    height: 40,
+                    width: 400,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 50.0),
+                      child: Text(
+                        "${Constants.it1}                                                        Rs.  ${Constants.t1}",
+                        style: TextStyle(color: Colors.red, fontSize: 14),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                    width: 400,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 50.0),
+                      child: Text(
+                        "${Constants.it2}                                                  Rs.  ${Constants.t2} ",
+                        style: TextStyle(color: Colors.red, fontSize: 14),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                    width: 400,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 50.0),
+                      child: Text(
+                        "${Constants.it3}                                                      Rs. ${-1 * Constants.t3}",
+                        style: TextStyle(color: Colors.red, fontSize: 14),
+                      ),
+                    ),
+                  ),
+                ]),
               ),
             ),
           ],
