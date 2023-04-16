@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/credit_card_widget.dart';
+import 'package:flutter_credit_card/flutter_credit_card.dart';
 
 import 'home_screen.dart';
 
@@ -48,6 +49,9 @@ class CreditCardScreenState extends State<CreditCardScreen> {
             cardNumber: '3456 4321 5671 8154',
             cvvCode: '773',
             expiryDate: '27/04',
+            cardBgColor: Colors.black,
+            obscureCardNumber: false,
+            obscureCardCvv: false,
             onCreditCardWidgetChange: (CreditCardBrand) {},
             showBackView: false,
           ),
