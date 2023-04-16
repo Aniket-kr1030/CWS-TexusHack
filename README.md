@@ -65,4 +65,3 @@ To get started, you will need to have Flutter installed on your local machine. Y
 - Flutter - Mobile Application Framework
 - SQLFlite - Local SQLite Database
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
