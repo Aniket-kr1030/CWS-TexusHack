@@ -44,57 +44,12 @@ class CreditCardScreenState extends State<CreditCardScreen> {
           ),
           // ignore: non_constant_identifier_names
           CreditCardWidget(
-            cardHolderName: '',
-            cardNumber: '',
-            cvvCode: '',
-            expiryDate: '',
+            cardHolderName: 'Aniket Kumar',
+            cardNumber: '3456 4321 5671 8154',
+            cvvCode: '773',
+            expiryDate: '27/04',
             onCreditCardWidgetChange: (CreditCardBrand) {},
             showBackView: false,
-          ),
-
-          Row(children: [
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 16),
-                child: Container(
-                  width: 200,
-                  height: 72,
-                  decoration: BoxDecoration(
-                      border: Border.all(),
-                      color: Color(0xff404040),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 22,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Padding(
-                padding: const EdgeInsets.only(right: 16.0),
-                child: Container(
-                  width: 72,
-                  height: 72,
-                  decoration: BoxDecoration(
-                      border: Border.all(),
-                      color: Color(0xff404040),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                ),
-              ),
-            ),
-          ]),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Container(
-              width: 330,
-              height: 320,
-              decoration: BoxDecoration(
-                  border: Border.all(),
-                  color: Color(0xff404040),
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
-            ),
           ),
         ],
       ),

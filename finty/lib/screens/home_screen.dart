@@ -21,6 +21,9 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
+  Color textColor = (Constants.t1 < 0) ? Colors.red : Colors.green;
+  Color textColor1 = (Constants.t2 < 0) ? Colors.red : Colors.green;
+  Color textColor2 = (Constants.t3 < 0) ? Colors.red : Colors.green;
 
   void goProfile() {
     Navigator.of(context)
@@ -93,7 +96,10 @@ class HomeScreenState extends State<HomeScreen> {
             ]),
             const Text(
               "Dash Board",
-              style: TextStyle(fontSize: 18, color: Colors.white),
+              style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w900),
             ),
             SizedBox(
               height: 50,
@@ -152,7 +158,10 @@ class HomeScreenState extends State<HomeScreen> {
                         padding: EdgeInsets.only(top: 40, left: 40, right: 40),
                         child: Text(
                           "Balance: Rs.${Constants.balance}",
-                          style: TextStyle(color: Colors.white, fontSize: 18),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w900),
                         ),
                       ),
                     )
@@ -231,8 +240,10 @@ class HomeScreenState extends State<HomeScreen> {
                                       width: 20,
                                     ),
                                     Text(
-                                      "Budget",
-                                      style: TextStyle(color: Colors.green),
+                                      "Transaction",
+                                      style: TextStyle(
+                                          color: Colors.green,
+                                          fontWeight: FontWeight.w900),
                                     ),
                                     Icon(
                                       Icons.add,
@@ -261,7 +272,10 @@ class HomeScreenState extends State<HomeScreen> {
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
                       "Transactions",
-                      style: TextStyle(color: Colors.white, fontSize: 16),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w900),
                     ),
                   ),
                   SizedBox(
@@ -271,10 +285,10 @@ class HomeScreenState extends State<HomeScreen> {
                     height: 40,
                     width: 400,
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 50.0),
+                      padding: EdgeInsets.only(left: 50.0),
                       child: Text(
-                        "Netflix                                                         Rs.  -20",
-                        style: TextStyle(color: Colors.red, fontSize: 14),
+                        "${Constants.it1}                                                        Rs.  ${Constants.t1}",
+                        style: TextStyle(color: textColor, fontSize: 14),
                       ),
                     ),
                   ),
@@ -284,8 +298,8 @@ class HomeScreenState extends State<HomeScreen> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 50.0),
                       child: Text(
-                        "Amazon                                                      Rs.  -40",
-                        style: TextStyle(color: Colors.red, fontSize: 14),
+                        "${Constants.it2}                                                  Rs.  ${Constants.t2} ",
+                        style: TextStyle(color: textColor1, fontSize: 14),
                       ),
                     ),
                   ),
@@ -295,8 +309,8 @@ class HomeScreenState extends State<HomeScreen> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 50.0),
                       child: Text(
-                        "Maa                                                             Rs. +300",
-                        style: TextStyle(color: Colors.green, fontSize: 14),
+                        "${Constants.it3}                                                      Rs. ${Constants.t3}",
+                        style: TextStyle(color: textColor2, fontSize: 14),
                       ),
                     ),
                   ),
@@ -321,8 +335,11 @@ class HomeScreenState extends State<HomeScreen> {
                   padding:
                       EdgeInsets.only(top: 60, left: 16, right: 16, bottom: 16),
                   child: Text(
-                    "Budgets & Goals",
-                    style: TextStyle(color: Colors.white, fontSize: 24),
+                    "Budget & Goals",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w900),
                   ),
                 ),
                 Padding(
@@ -339,8 +356,11 @@ class HomeScreenState extends State<HomeScreen> {
                       child: Column(
                         children: [
                           Text(
-                            "Budgets",
-                            style: TextStyle(color: Colors.white, fontSize: 20),
+                            "Budget",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w900),
                           ),
                           SizedBox(
                             height: 10,
@@ -357,7 +377,9 @@ class HomeScreenState extends State<HomeScreen> {
                                   padding: const EdgeInsets.only(top: 16.0),
                                   child: Text(
                                     "Grocery",
-                                    style: TextStyle(color: Colors.white),
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w900),
                                   ),
                                 ),
                                 SizedBox(
@@ -403,7 +425,10 @@ class HomeScreenState extends State<HomeScreen> {
                         ),
                         Text(
                           "Create Budget",
-                          style: TextStyle(color: Colors.white, fontSize: 16),
+                          style: TextStyle(
+                              color: Colors.blue,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700),
                         )
                       ],
                     ),
@@ -424,14 +449,20 @@ class HomeScreenState extends State<HomeScreen> {
                         children: [
                           Text(
                             "Goals",
-                            style: TextStyle(color: Colors.white, fontSize: 20),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w900),
                           ),
                           SizedBox(
                             height: 10,
                           ),
                           Text(
                             "How much I saved for my goals?",
-                            style: TextStyle(color: Colors.white, fontSize: 12),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                            ),
                           ),
                           SizedBox(
                             height: 50,
@@ -441,7 +472,9 @@ class HomeScreenState extends State<HomeScreen> {
                                   padding: const EdgeInsets.only(top: 16.0),
                                   child: Text(
                                     "Headphones",
-                                    style: TextStyle(color: Colors.white),
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w900),
                                   ),
                                 ),
                                 SizedBox(
@@ -487,7 +520,10 @@ class HomeScreenState extends State<HomeScreen> {
                         ),
                         Text(
                           "Create Goal",
-                          style: TextStyle(color: Colors.white, fontSize: 16),
+                          style: TextStyle(
+                              color: Colors.blue,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700),
                         )
                       ],
                     ),
@@ -508,8 +544,10 @@ class HomeScreenState extends State<HomeScreen> {
                             padding: const EdgeInsets.all(16.0),
                             child: Text(
                               "Personalized Advice",
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 18),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w900),
                             ),
                           ),
                           SizedBox(
@@ -559,7 +597,10 @@ class HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.only(top: 60, left: 16, right: 16, bottom: 16),
             child: Text(
               "Your accounts",
-              style: TextStyle(color: Colors.white, fontSize: 18),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w900),
             ),
           ),
           Expanded(
@@ -573,7 +614,8 @@ class HomeScreenState extends State<HomeScreen> {
                     child: Center(
                       child: Text(
                         "You don't have any accounts linked to Finty yet",
-                        style: TextStyle(color: Colors.white),
+                        style:
+                            TextStyle(color: Color.fromARGB(255, 222, 77, 77)),
                       ),
                     )),
                 Padding(
@@ -591,11 +633,14 @@ class HomeScreenState extends State<HomeScreen> {
                           padding: const EdgeInsets.only(top: 24.0),
                           child: Text(
                             "Add  Bank Account",
-                            style: TextStyle(color: Colors.white, fontSize: 18),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w900),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 20),
+                          padding: const EdgeInsets.only(top: 32),
                           child: Text(
                             "Connect your Bank Account.\nSync all your transactions to Wallet\nautomatically",
                             style: TextStyle(color: Colors.white),
@@ -620,11 +665,14 @@ class HomeScreenState extends State<HomeScreen> {
                           padding: const EdgeInsets.only(top: 24.0),
                           child: Text(
                             "Manual Input",
-                            style: TextStyle(color: Colors.white, fontSize: 18),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w900),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 20),
+                          padding: const EdgeInsets.only(top: 32),
                           child: Text(
                             "Update your account manually.\nYou can connect the bank later,\n if you wish.",
                             style: TextStyle(color: Colors.white),
@@ -647,7 +695,8 @@ class HomeScreenState extends State<HomeScreen> {
           padding: EdgeInsets.only(top: 60, left: 16, right: 16, bottom: 16),
           child: Text(
             "Settings",
-            style: TextStyle(color: Colors.white, fontSize: 18),
+            style: TextStyle(
+                color: Colors.white, fontSize: 24, fontWeight: FontWeight.w900),
           ),
         ),
         Center(
@@ -686,7 +735,8 @@ class HomeScreenState extends State<HomeScreen> {
                       SizedBox(
                         width: 180,
                         child: Padding(
-                          padding: EdgeInsets.only(left: 45, bottom: 10),
+                          padding:
+                              EdgeInsets.only(left: 45, bottom: 10, top: 16),
                           child: Text(
                             "Push Notifications",
                             style: TextStyle(color: Colors.white, fontSize: 16),
@@ -810,28 +860,6 @@ class HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: const EdgeInsets.only(
                     left: 60, right: 40, top: 20, bottom: 20),
-                child: Center(
-                  child: Row(
-                    children: const [
-                      Icon(
-                        Icons.info_outline_rounded,
-                        color: Colors.white,
-                        size: 24,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 45),
-                        child: Text(
-                          "About Finty",
-                          style: TextStyle(color: Colors.white, fontSize: 16),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: 60, right: 40, top: 20, bottom: 20),
                 child: TextButton(
                   onPressed: goLogin,
                   child: Center(
@@ -846,7 +874,10 @@ class HomeScreenState extends State<HomeScreen> {
                           padding: EdgeInsets.only(left: 45),
                           child: Text(
                             "Sign Out",
-                            style: TextStyle(color: Colors.red, fontSize: 16),
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w900),
                           ),
                         ),
                       ],

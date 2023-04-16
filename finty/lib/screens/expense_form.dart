@@ -124,11 +124,14 @@ class _ExpenseFormState extends State<ExpenseForm> {
               ),
             ),
           ),
-          ElevatedButton(
-            onPressed: null,
-            child: Text(
-              "Done",
-              style: TextStyle(color: Colors.white, fontSize: 18),
+          Padding(
+            padding: EdgeInsets.only(top: 300.0),
+            child: ElevatedButton(
+              onPressed: goHome,
+              child: Text(
+                "Done",
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
             ),
           ),
         ],

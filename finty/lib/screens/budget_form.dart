@@ -1,3 +1,4 @@
+import 'package:finty/constant/constants.dart';
 import 'package:finty/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,26 @@ class BudgetForm extends StatefulWidget {
 }
 
 class _BudgetFormState extends State<BudgetForm> {
+  int? x;
+  String? str;
+  final TextEditingController money = TextEditingController();
+  final TextEditingController strA = TextEditingController();
   void goHome() {
+    Constants.it3 = Constants.it2;
+    Constants.it2 = Constants.it1;
+    Constants.t3 = Constants.t2;
+    Constants.t2 = Constants.t1;
+
+    if (int.parse(money.text) > 0) {
+      Constants.income += int.parse(money.text);
+    } else {
+      Constants.expense -= int.parse(money.text);
+    }
+
+    Constants.balance += int.parse(money.text);
+    Constants.it1 = strA.text;
+    Constants.t1 = int.parse(money.text);
+
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => const HomeScreen()));
   }
@@ -24,9 +44,10 @@ class _BudgetFormState extends State<BudgetForm> {
             children: [
               TextButton(onPressed: goHome, child: Icon(Icons.arrow_back)),
               Padding(
-                padding: const EdgeInsets.all(64.0),
+                padding: const EdgeInsets.only(
+                    left: 34.0, right: 64, top: 64, bottom: 64),
                 child: Text(
-                  "Add Budget Instance",
+                  "Add Transaction Instance",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -36,44 +57,27 @@ class _BudgetFormState extends State<BudgetForm> {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 32, right: 32),
+            padding: const EdgeInsets.only(left: 32, right: 16),
             child: TextField(
               style: TextStyle(color: Colors.white),
-              controller: null,
+              controller: strA,
               decoration: const InputDecoration(
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(width: 3, color: Colors.white),
                   borderRadius:
                       BorderRadius.all(Radius.circular(50.0)), //<-- SEE HERE
                 ),
-                hintText: 'Budget(in Rs.)',
+                hintText: 'Utility Name',
                 hintStyle: TextStyle(fontSize: 20.0, color: Colors.grey),
               ),
             ),
           ),
           SizedBox(height: 20),
           Padding(
-            padding: const EdgeInsets.only(left: 32, right: 32),
+            padding: const EdgeInsets.only(left: 32, right: 16),
             child: TextField(
               style: TextStyle(color: Colors.white),
-              controller: null,
-              decoration: const InputDecoration(
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(width: 3, color: Colors.white),
-                  borderRadius:
-                      BorderRadius.all(Radius.circular(50.0)), //<-- SEE HERE
-                ),
-                hintText: 'Period(in days)',
-                hintStyle: TextStyle(fontSize: 20.0, color: Colors.grey),
-              ),
-            ),
-          ),
-          SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.only(left: 32, right: 32),
-            child: TextField(
-              style: TextStyle(color: Colors.white),
-              controller: null,
+              controller: money,
               decoration: const InputDecoration(
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(width: 3, color: Colors.white),
@@ -123,11 +127,14 @@ class _BudgetFormState extends State<BudgetForm> {
               ),
             ),
           ),
-          const ElevatedButton(
-            onPressed: null,
-            child: Text(
-              "Done",
-              style: TextStyle(color: Colors.white, fontSize: 18),
+          Padding(
+            padding: EdgeInsets.only(top: 100.0),
+            child: ElevatedButton(
+              onPressed: goHome,
+              child: Text(
+                "Done",
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
             ),
           ),
         ],
