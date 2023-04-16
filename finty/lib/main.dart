@@ -19,7 +19,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Finty",
       themeMode: ThemeMode.light,
-      home: HomeScreen(),
+      home: LoginScreen(),
     );
   }
 }
